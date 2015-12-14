@@ -587,6 +587,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
             ]
         }
     ];
+    var _index = 0;
 
     return {
         getPosts: function () {
@@ -599,6 +600,29 @@ angular.module('ceihm').factory('PostsFactory', [function () {
                 }
             }
             return null;
+        },
+        addPost: function (title, content, name) {
+            posts.push({
+                name: name,
+                title: title,
+                content: content,
+                comments: [],
+                like: 0,
+                index: _index++
+            });
+        },
+        comment: function (postId, commentContent) {
+            for (var i in posts) {
+                if (posts[i].index == postId) {
+                    posts[i].comments.push({
+                        name: name,
+                        content: commentContent,
+                        like: 0,
+                        index: _index++
+                    });
+                    break;
+                }
+            }
         }
     }
 }]);
