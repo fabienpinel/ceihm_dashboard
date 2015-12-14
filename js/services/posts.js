@@ -611,7 +611,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
                 index: _index++
             });
         },
-        comment: function (postId, commentContent) {
+        addComment: function (postId, commentContent) {
             for (var i in posts) {
                 if (posts[i].index == postId) {
                     posts[i].comments.push({
