@@ -1,4 +1,10 @@
 <h1>Liste des posts</h1>
+<form ng-submit="addPost()">
+    <input type="text" ng-model="post.name" required/>
+    <input type="text" ng-model="post.title" required/>
+    <input type="text" ng-model="post.content" required/>
+    <input type="submit" value="submit"/>
+</form>
 <div ng-repeat="post in posts">
     {{post.name}} : <a ng-href="#/posts/{{post.index}}">{{post.title}}</a>
 </div>
