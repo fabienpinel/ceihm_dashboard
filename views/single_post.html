@@ -1,5 +1,12 @@
 <a href="#/posts">back</a>
 <h1>Single Post</h1>
 <div>
-    {{post.title}}
+    <div class="name">{{post.name}}</div>
+    <div class="title">{{post.title}}</div>
+    <div class="content">{{post.content}}</div>
+    <div class="comments">
+        <div ng-repeat="comment in post.comments" class="comment">
+            {{comment.name}} : {{comment.content}}
+        </div>
+    </div>
 </div>
