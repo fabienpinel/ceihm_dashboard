@@ -707,17 +707,18 @@ angular.module('ceihm').factory('PostsFactory', [function () {
             }
             return null;
         },
-        addPost: function (title, content, name) {
+        addPost: function (title, content, name, tags) {
             posts.push({
                 name: name,
                 title: title,
                 content: content,
                 comments: [],
+                tags: tags,
                 like: 0,
                 index: _index++
             });
         },
-        addComment: function (postId, commentContent) {
+        addComment: function (postId, commentContent, name) {
             for (var i in posts) {
                 if (posts[i].index == postId) {
                     posts[i].comments.push({

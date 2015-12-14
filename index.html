@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="bower_components/angular/angular-csp.css"/>
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css"/>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -15,6 +16,27 @@
 
 </head>
 <body ng-app="ceihm">
+
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+            <a ng-href="#/posts">
+            <div layout="row" layout-align="center center">
+               <i class="fa fa-home fa-2x"></i>
+            </div>
+            </a>
+        </md-button>
+        <h2>
+            <span>Dashboard CEIHM</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="showAdvanced($event)">
+            <div layout="row" layout-align="center center">
+                <i class="fa fa-plus fa-2x"></i>
+            </div>
+        </md-button>
+    </div>
+</md-toolbar>
 
 <div ng-view></div>
 

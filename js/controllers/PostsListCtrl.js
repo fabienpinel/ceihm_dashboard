@@ -4,6 +4,8 @@ angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', f
 
     $scope.post = {};
 
+    $scope.search = '';
+
     $scope.addPost = function () {
         PostsFactory.addPost($scope.post.title, $scope.post.content, $scope.post.name);
         $scope.post = {};

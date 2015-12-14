@@ -1,0 +1,43 @@
+<md-dialog aria-label="add dialog">
+    <form ng-submit="answer()">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add New Post</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="hide()" aria-label="close">
+                    <div layout="row" layout-align="center center">
+                        <i class="fa fa-times fa-2x"></i>
+                    </div>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="width:400px;padding:15px; order:0; -webkit-order:0;">
+            <md-input-container>
+                <label>Name</label>
+                <input ng-model="post.name" type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Title</label>
+                <input ng-model="post.title" type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Content</label>
+                <input ng-model="post.content" type="text">
+            </md-input-container>
+            <md-chips ng-model="post.tags">
+                <md-chip-template>
+                    <strong>{{$chip}}</strong>
+                </md-chip-template>
+            </md-chips>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="hide()">
+                Cancel
+            </md-button>
+            <md-button type="submit" style="margin-right:20px;" class="md-raised md-primary">
+                Send
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
