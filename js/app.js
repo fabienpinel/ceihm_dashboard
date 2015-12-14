@@ -1,4 +1,4 @@
-angular.module('ceihm', ['ngRoute']);
+angular.module('ceihm', ['ngRoute', 'ngMaterial']);
 
 angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
 
