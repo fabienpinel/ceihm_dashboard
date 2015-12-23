@@ -11,7 +11,7 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-dialog-content style="width:400px;padding:15px; order:0; -webkit-order:0;">
+        <md-dialog-content class="add-dialog-content">
             <md-input-container>
                 <label>Name</label>
                 <input ng-model="comment.name" type="text">
@@ -26,7 +26,7 @@
             <md-button ng-click="hide()">
                 Cancel
             </md-button>
-            <md-button type="submit" style="margin-right:20px;" class="md-raised md-primary">
+            <md-button type="submit" class="md-raised md-primary submit-button-add">
                 Send
             </md-button>
         </md-dialog-actions>

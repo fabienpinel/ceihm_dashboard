@@ -9,8 +9,8 @@
             <p>
                 {{ post.content }}
             </p>
-            <div style="margin:10px;margin-bottom:20px;margin-left:0px;">
-                <div ng-repeat="tag in post.tags track by $index" style="margin-right:5px;display:inline;background:lightgrey;padding:5px; border-radius:100000px; text-align:center">
+            <div class="tags">
+                <div ng-repeat="tag in post.tags track by $index" class="tag">
                     <small>{{tag}}</small>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 <div style="width:400px;margin:auto;">
     <div>
         <md-input-container>
-            <i class="fa fa-search fa-2x" style="position:absolute;top:17px;left:-35px;"></i>
+            <i class="fa fa-search fa-2x search-icon"></i>
             <label>Search</label>
             <input ng-model="search" type="text">
         </md-input-container>
@@ -14,14 +14,15 @@
         <img src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b0caf8bf-210x210.png"
              class="md-avatar"
              alt="unknown user" />
+        <div class="like"><i class="fa fa-thumbs-o-up"></i> <small>{{post.like}}</small></div>
         <div class="md-list-item-text">
             <h3><a ng-href="#/posts/{{post.index}}">{{ post.title }}</a></h3>
             <h4>{{ post.name }}</h4>
             <p>
                 {{ post.content | limitTo: 100 }} <span ng-show="post.content.length >= 100">...</span>
             </p>
-            <div style="margin:10px;margin-bottom:20px;margin-left:0px;">
-                <div ng-repeat="tag in post.tags track by $index" style="margin-right:5px;display:inline;background:lightgrey;padding:5px; border-radius:100000px; text-align:center">
+            <div class="tags">
+                <div ng-repeat="tag in post.tags track by $index" class="tag">
                     <small>{{tag}}</small>
                 </div>
             </div>
