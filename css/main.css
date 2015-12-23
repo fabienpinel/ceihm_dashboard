@@ -16,6 +16,10 @@
     margin-left:0px;
 }
 
+.filters {
+    text-align:center;
+}
+
 .tag {
     margin-right:5px;
     display:inline;
@@ -34,4 +38,9 @@
 
 .submit-button-add {
     margin-right:20px;
+}
+
+.search-filter {
+    width:400px;
+    margin:auto;
 }

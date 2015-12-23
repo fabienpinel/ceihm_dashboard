@@ -1,14 +1,24 @@
 angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', function ($scope, PostsFactory) {
 
-    $scope.posts = PostsFactory.getPosts();
 
-    $scope.post = {};
+    var vm = this;
 
-    $scope.search = '';
+    vm.filterPosts ='';
+    vm.reverse = true;
+    vm.posts = PostsFactory.getPosts();
 
-    $scope.addPost = function () {
-        PostsFactory.addPost($scope.post.title, $scope.post.content, $scope.post.name);
-        $scope.post = {};
+    vm.post = {};
+
+    vm.search = '';
+
+    vm.addPost = function () {
+        PostsFactory.addPost(vm.post.title, vm.post.content, vm.post.name);
+        vm.post = {};
+    };
+
+    vm.filterPost = function(filter) {
+        vm.reverse = (vm.filterPosts === filter) ? !vm.reverse : false;
+        vm.filterPosts = filter;
     }
 
 }]);

@@ -5,11 +5,11 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/posts', {
             templateUrl: 'views/posts_list.html',
-            controller: 'PostsListCtrl'
+            controller: 'PostsListCtrl as PostsList'
         }).
         when('/posts/:id', {
             templateUrl: 'views/single_post.html',
-            controller: 'SinglePostCtrl'
+            controller: 'SinglePostCtrl as SinglePost'
         }).
         otherwise({
             redirectTo: '/posts'
