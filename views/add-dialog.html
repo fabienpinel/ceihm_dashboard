@@ -24,7 +24,7 @@
                 <label>Content</label>
                 <input ng-model="post.content" type="text">
             </md-input-container>
-            <md-chips ng-model="post.tags">
+            <md-chips ng-model="post.tags" placeholder="+ tag" secondary-placeholder="+ Tag">
                 <md-chip-template>
                     <strong>{{$chip}}</strong>
                 </md-chip-template>

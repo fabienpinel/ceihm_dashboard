@@ -20,6 +20,10 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
 
 angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$location', '$route',function ($rootScope, $mdDialog, PostsFactory, $location, $route) {
 
+    $rootScope.text = function () {
+        return $location.path() == '/posts' ? 'Post' : 'Commentaire';
+    };
+
     $rootScope.showAdvanced = function(ev) {
 
         if ($location.path() == '/posts') {

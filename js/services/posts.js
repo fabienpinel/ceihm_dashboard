@@ -58,7 +58,8 @@ angular.module('ceihm').factory('PostsFactory', [function () {
             "tags": [
                 "chine",
                 "cours"
-            ]
+            ],
+            "comments":[]
         },
         {
             "index": "566ec8e5fd03869fd3bb7014",

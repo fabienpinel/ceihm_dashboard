@@ -2,5 +2,6 @@ angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', 
 
     var vm = this;
     vm.post = PostsFactory.getPostById($routeParams.id);
+    console.log(vm.post);
 
 }]);
