@@ -21,4 +21,8 @@ angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', f
         vm.filterPosts = filter;
     }
 
+    vm.searchThisTag = function(tag) {
+        vm.search = tag;
+    }
+
 }]);

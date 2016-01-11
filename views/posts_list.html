@@ -21,6 +21,7 @@
              class="md-avatar"
              alt="unknown user" />
         <div class="like"><i class="fa fa-thumbs-o-up"></i> <small>{{post.like}}</small></div>
+        <div class="comment"><i class="fa fa-comments"></i> <small>{{post.comment}}</small></div>
         <div class="md-list-item-text">
             <h3><a ng-href="#/posts/{{post.index}}">{{ post.title }}</a></h3>
             <h4>{{ post.name }}</h4>
@@ -28,7 +29,7 @@
                 {{ post.content | limitTo: 100 }} <span ng-show="post.content.length >= 100">...</span>
             </p>
             <div class="tags">
-                <div ng-repeat="tag in post.tags track by $index" class="tag">
+                <div ng-repeat="tag in post.tags track by $index" class="tag" ng-click="PostsList.searchThisTag(tag)">
                     <small>{{tag}}</small>
                 </div>
             </div>

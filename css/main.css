@@ -1,7 +1,13 @@
 .like {
     position: absolute;
     top: 74px;
-    left: 17px;
+    left: 0px;
+}
+
+.comment {
+    position: absolute;
+    top: 74px;
+    left: 34px;
 }
 
 .search-icon {
@@ -27,6 +33,10 @@
     padding:5px;
     border-radius:100000px;
     text-align:center;
+    cursor:pointer;
+}
+.tag:focus {
+    outline:  none;
 }
 
 .add-dialog-content {
