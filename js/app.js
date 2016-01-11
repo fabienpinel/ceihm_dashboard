@@ -1,4 +1,4 @@
-angular.module('ceihm', ['ngRoute', 'ngMaterial']);
+angular.module('ceihm', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
 angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
 
@@ -26,11 +26,10 @@ angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$locati
 
     $rootScope.showAdvanced = function(ev) {
 
-        if ($location.path() == '/posts') {
             $mdDialog
                 .show({
                     controller: DialogController,
-                    templateUrl: 'views/add-dialog.html',
+                    templateUrl: 'views/signin.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose:true
@@ -38,23 +37,7 @@ angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$locati
                 .then(function(post) {
                     if (post && post.title && post.content && post.name) PostsFactory.addPost(post.title, post.content, post.name, post.tags);
                 });
-        } else {
-            $mdDialog
-                .show({
-                    controller: DialogCommentController,
-                    templateUrl: 'views/comment-dialog.html',
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose:true
-                })
-                .then(function(comment) {
-                    if (comment && comment.content && comment.name) {
-                        PostsFactory.addComment($route.current.params.id, comment.content, comment.name);
-                        console.log('coucou');
-                    }
 
-                });
-        }
 
     };
 
