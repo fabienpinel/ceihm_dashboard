@@ -11,6 +11,10 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/single_post.html',
             controller: 'SinglePostCtrl as SinglePost'
         }).
+        when('/maps', {
+            templateUrl: 'views/maps.html',
+            controller: 'MapsCtrl as Maps'
+        }).
         otherwise({
             redirectTo: '/posts'
         });

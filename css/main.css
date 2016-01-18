@@ -4,6 +4,10 @@
     left: 0px;
 }
 
+#world-map {
+    background-color:white;
+}
+
 .comment {
     position: absolute;
     top: 74px;
