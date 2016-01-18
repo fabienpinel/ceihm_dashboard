@@ -46,8 +46,8 @@
         </form>
     </div>
 
-    <div class="comment-form-not-logged">
-        Connectez vous pour ajouter un commentaire !
+    <div class="comment-form-not-logged" ng-show="!$root.logged">
+        <i class="fa fa-info-circle"></i> <a ng-href="#/login">Connectez vous</a> pour ajouter un commentaire !
     </div>
 
     <div class="comments-container">
