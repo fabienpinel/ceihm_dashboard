@@ -19,6 +19,10 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'views/signin.html',
         controller: 'SigninCtrl as Signin'
     }).
+    when('/addPost', {
+        templateUrl: 'views/addPost.html',
+        controller: 'AddPostCtrl as AddPost'
+    }).
         otherwise({
             redirectTo: '/posts'
         });
@@ -39,7 +43,6 @@ angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$locati
         $rootScope.logged = false;
         $rootScope.user = false;
         localStorage.removeItem('user');
-        $location.path = "/posts";
     }
 }]);
 

@@ -1,0 +1,20 @@
+<div layout="row">
+    <div flex="30">
+    </div>
+    <div id="signinDiv" flex="50">
+        <form>
+            <md-input-container>
+                <label>Titre</label>
+                <input type="text" ng-model="post.title" required md-autofocus>
+            </md-input-container>
+            <md-input-container>
+                <label>Contenu</label>
+                <input  type="text" ng-model="post.content" required/>
+            </md-input-container>
+            <md-button type="submit" class="md-raised right" ng-click="addPost()"> Publier </md-button>
+        </form>
+    </div>
+
+    <div flex hide-sm hide-xs>
+    </div>
+</div>
