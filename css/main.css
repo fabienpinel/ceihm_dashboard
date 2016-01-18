@@ -58,3 +58,9 @@
 
 #title {
 }
+.right{
+    float:right;
+}
+#loginDiv, #signinDiv{
+    padding-top: 20px;
+}
