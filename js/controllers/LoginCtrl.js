@@ -7,7 +7,7 @@ angular.module('ceihm').controller('LoginCtrl', ['$scope', 'LoginFactory','$mdTo
         var loginSuccess = LoginFactory.login($scope.user.mail, $scope.user.password);
         $mdToast.show(
             $mdToast.simple()
-                .content('Login success : '+(loginSuccess!=false))
+                .content('Login '+(loginSuccess?"success":"error"))
                 .hideDelay(3000)
         );
         $rootScope.logged = true;

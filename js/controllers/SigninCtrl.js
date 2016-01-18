@@ -4,14 +4,18 @@
 /**
  * Created by fabienpinel on 18/01/16.
  */
-angular.module('ceihm').controller('SigninCtrl', ['$scope', 'SigninFactory','$mdToast',  function ($scope, SigninFactory, $mdToast) {
+angular.module('ceihm').controller('SigninCtrl', ['$scope', 'SigninFactory','$mdToast',  '$rootScope', '$location', function ($scope, SigninFactory, $mdToast, $rootScope, $location) {
 
     $scope.signin = function(){
         var singinSuccess = SigninFactory.signin($scope.user.firstname, $scope.user.lastname,$scope.user.mail,$scope.user.password);
         $mdToast.show(
             $mdToast.simple()
-                .content('Singin success : '+singinSuccess)
+                .content('Singin '+(singinSuccess ? "success":"error"))
                 .hideDelay(3000)
         );
+        $rootScope.logged = true;
+        $rootScope.user = singinSuccess;
+        $location.path("/posts");
     }
+
 }]);

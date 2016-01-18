@@ -32,10 +32,10 @@
             <span>FAQ Semestre étranger</span>
         </h2>
         <span flex></span>
-        <md-button aria-label="Settings" ng-href="#signin">
+        <md-button aria-label="Settings" ng-href="#signin" ng-show="!$root.logged">
             <span id="singin">S'enregistrer</span>
         </md-button>
-        <md-button aria-label="Settings" ng-href="#login">
+        <md-button aria-label="Settings" ng-href="#login" ng-show="!$root.logged">
             <span id="login">Se connecter</span>
         </md-button>
     </div>

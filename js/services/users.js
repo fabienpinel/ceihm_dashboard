@@ -14,14 +14,15 @@ angular.module('ceihm').factory('UsersFactory', [function () {
     ];
 
     return {
-        register: function (firstname, lastname, mail, pass) {
-            users.push({
+        signin: function (firstname, lastname, mail, pass) {
+            var us = {
                 firstname: firstname,
                 lastname: lastname,
                 mail: mail,
                 password: pass
-            });
-            return users;
+            };
+            users.push(us);
+            return us;
         },
         login: function (mail, pass) {
             var returned = false;
