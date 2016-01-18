@@ -40,6 +40,9 @@
         <md-button aria-label="Settings" ng-href="#login" ng-show="!$root.logged">
             <span id="login">Se connecter</span>
         </md-button>
+        <md-button aria-label="Settings" ng-click="disconnect()" ng-show="$root.logged">
+            <span id="disconnect">Se déconnecter</span>
+        </md-button>
     </div>
 </md-toolbar>
 
@@ -58,6 +61,7 @@
 <script src="js/controllers/SinglePostCtrl.js"></script>
 <script src="js/controllers/LoginCtrl.js"></script>
 <script src="js/controllers/SigninCtrl.js"></script>
+<script src="js/controllers/AddPostCtrl.js"></script>
 
 </body>
 </html>

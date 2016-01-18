@@ -19,6 +19,10 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'views/signin.html',
         controller: 'SigninCtrl as Signin'
     }).
+    when('/addPost', {
+        templateUrl: 'views/addPost.html',
+        controller: 'AddPostCtrl as AddPost'
+    }).
         otherwise({
             redirectTo: '/posts'
         });
@@ -27,10 +31,19 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
 
 
 angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$location', '$route', function ($rootScope, $mdDialog, PostsFactory, $location, $route) {
+    if(localStorage.getItem('user')){
+        $rootScope.logged = true;
+        $rootScope.user = JSON.parse(localStorage.getItem('user'));
+    }
 
     $rootScope.text = function () {
         return $location.path() == '/posts' ? 'Post' : 'Commentaire';
     };
+    $rootScope.disconnect = function(){
+        $rootScope.logged = false;
+        $rootScope.user = false;
+        localStorage.removeItem('user');
+    }
 }]);
 
 function DialogController ($scope, $mdDialog) {

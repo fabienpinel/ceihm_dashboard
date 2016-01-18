@@ -11,11 +11,6 @@ angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '
 
     vm.search = '';
 
-    vm.addPost = function () {
-        PostsFactory.addPost(vm.post.title, vm.post.content, vm.post.name);
-        vm.post = {};
-    };
-
     vm.filterPost = function(filter) {
         vm.reverse = (vm.filterPosts === filter) ? !vm.reverse : false;
         vm.filterPosts = filter;
