@@ -31,5 +31,8 @@ angular.module('ceihm').controller('AddPostCtrl', ['$rootScope','$scope', 'Posts
             $scope.newTag = '';
         }
     }
+    if(!$rootScope.logged){
+        $location.path("/posts");
+    }
 
 }]);

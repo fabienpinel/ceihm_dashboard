@@ -1,15 +1,25 @@
-angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', 'PostsFactory', '$rootScope', function ($scope, $routeParams, PostsFactory,$rootScope) {
+angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', '$mdToast','PostsFactory', '$rootScope', function ($scope, $routeParams, $mdToast,PostsFactory,$rootScope) {
 
     var vm = this;
     vm.post = PostsFactory.getPostById($routeParams.id);
     console.log(vm.post);
 
     vm.vote = function (up) {
-        PostsFactory.voteForPost(vm.post.index, up);
+        if($rootScope.logged){
+            PostsFactory.voteForPost(vm.post.index, up);
+        }else{
+            //toast
+            vm.displayToast();
+        }
     };
 
     vm.voteForComment = function (commentId, up) {
-        PostsFactory.voteForComment(vm.post.index, commentId, up);
+        if($rootScope.logged){
+            PostsFactory.voteForComment(vm.post.index, commentId, up);
+        }else{
+            //toast
+            vm.displayToast();
+        }
     };
 
     vm.addComment = function () {
@@ -22,5 +32,11 @@ angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', 
     vm.orderByLike = function(comment) {
         return comment.dislike - comment.like;
     };
-
+    vm.displayToast = function(){
+        $mdToast.show(
+            $mdToast.simple()
+                .content('Vous devez être connecté pour voter.')
+                .hideDelay(3000)
+        );
+    }
 }]);
