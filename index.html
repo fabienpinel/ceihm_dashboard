@@ -18,7 +18,7 @@
 
 </head>
 <body ng-app="ceihm">
-
+<login-modal></login-modal>
 <md-toolbar>
     <div class="md-toolbar-tools">
         <md-button class="md-icon-button" aria-label="Settings">
@@ -32,8 +32,11 @@
             <span>FAQ Semestre étranger</span>
         </h2>
         <span flex></span>
-        <md-button aria-label="Settings" ng-click="showAdvanced($event)">
+        <md-button aria-label="Settings" ng-href="#signin">
             <span id="singin">S'enregistrer</span>
+        </md-button>
+        <md-button aria-label="Settings" ng-href="#login">
+            <span id="login">Se connecter</span>
         </md-button>
     </div>
 </md-toolbar>
@@ -41,9 +44,18 @@
 <div ng-view></div>
 
 <script src="js/app.js"></script>
+<!-- Services -->
 <script src="js/services/posts.js"></script>
+<script src="js/services/login.js"></script>
+<script src="js/services/signin.js"></script>
+<script src="js/services/signin.js"></script>
+<script src="js/services/users.js"></script>
+
+<!-- Controllers -->
 <script src="js/controllers/PostsListCtrl.js"></script>
 <script src="js/controllers/SinglePostCtrl.js"></script>
+<script src="js/controllers/LoginCtrl.js"></script>
+<script src="js/controllers/SigninCtrl.js"></script>
 
 </body>
 </html>

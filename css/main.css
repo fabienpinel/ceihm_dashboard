@@ -126,7 +126,6 @@ a:hover
     padding: 10px;
     position: relative;
 }
-
 .single-post-container .vote .fa { cursor:pointer;}
 .single-post-container .vote .count {
     font-size:18px;
@@ -163,5 +162,13 @@ a:hover
     padding-bottom:5px;
 }
 .comment-form .md-button {
+    float: right;
+}
+#title {
+}
+.right{
     float:right;
+}
+#loginDiv, #signinDiv{
+    padding-top: 20px;
 }

@@ -11,6 +11,14 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/single_post.html',
             controller: 'SinglePostCtrl as SinglePost'
         }).
+        when('/login', {
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl as Login'
+         }).
+    when('/signin', {
+        templateUrl: 'views/signin.html',
+        controller: 'SigninCtrl as Signin'
+    }).
         otherwise({
             redirectTo: '/posts'
         });
@@ -18,29 +26,11 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$location', '$route',function ($rootScope, $mdDialog, PostsFactory, $location, $route) {
+angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$location', '$route', function ($rootScope, $mdDialog, PostsFactory, $location, $route) {
 
     $rootScope.text = function () {
         return $location.path() == '/posts' ? 'Post' : 'Commentaire';
     };
-
-    $rootScope.showAdvanced = function(ev) {
-
-            $mdDialog
-                .show({
-                    controller: DialogController,
-                    templateUrl: 'views/signin.html',
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose:true
-                })
-                .then(function(post) {
-                    if (post && post.title && post.content && post.name) PostsFactory.addPost(post.title, post.content, post.name, post.tags);
-                });
-
-
-    };
-
 }]);
 
 function DialogController ($scope, $mdDialog) {

@@ -1,0 +1,20 @@
+<div layout="row">
+    <div flex="30">
+    </div>
+    <div id="loginDiv" flex="50">
+        <form>
+        <md-input-container>
+            <label>Email</label>
+            <input type="email" ng-model="user.mail" required md-autofocus>
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input  type="password" ng-model="user.password" required/>
+        </md-input-container>
+        <md-button type="submit" class="md-raised right" ng-click="login()"> Connexion </md-button>
+        </form>
+    </div>
+
+    <div flex hide-sm hide-xs>
+    </div>
+</div>
