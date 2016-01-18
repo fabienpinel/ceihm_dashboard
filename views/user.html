@@ -1,0 +1,29 @@
+<div class="user-container">
+
+    <div class="img-name">
+        <div class="picture">
+            <img src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b0caf8bf-210x210.png"
+                 class="md-avatar"
+                 alt="unknown user" />
+        </div>
+        <div class="name">
+            {{user.firstname}} {{user.lastname}}
+        </div>
+    </div>
+
+    <div class="join">
+        <div class="email">
+            <i class="fa fa-envelope"></i> {{user.mail}}
+        </div>
+        <div class="facebook">
+            <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i> {{user.firstname}} {{user.lastname}}</a>
+        </div>
+        <div class="twitter">
+            <a href="https://twitter.com" target="_blank">
+                <i class="fa fa-twitter"></i> @{{user.firstname}}.{{user.lastname}}
+            </a>
+
+        </div>
+    </div>
+
+</div>

@@ -24,7 +24,7 @@ angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', 
 
     vm.addComment = function () {
         if ($rootScope.logged) {
-            PostsFactory.addComment(vm.post.index, vm.comment, $rootScope.user.firstname + " " + $rootScope.user.lastname);
+            PostsFactory.addComment(vm.post.index, vm.comment, $rootScope.user.firstname + " " + $rootScope.user.lastname, $rootScope.user.id);
             vm.comment = '';
         }
     };

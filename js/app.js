@@ -6,7 +6,7 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
         when('/posts', {
             templateUrl: 'views/posts_list.html',
             controller: 'PostsListCtrl as PostsList',
-        reloadOnSearch: false
+            reloadOnSearch: false
         }).
         when('/posts/:id', {
             templateUrl: 'views/single_post.html',
@@ -20,14 +20,18 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl as Login'
          }).
-    when('/signin', {
-        templateUrl: 'views/signin.html',
-        controller: 'SigninCtrl as Signin'
-    }).
-    when('/addPost', {
-        templateUrl: 'views/addPost.html',
-        controller: 'AddPostCtrl as AddPost'
-    }).
+        when('/signin', {
+            templateUrl: 'views/signin.html',
+            controller: 'SigninCtrl as Signin'
+        })
+        .when('/user/:userId', {
+            templateUrl: 'views/user.html',
+            controller: 'UserCtrl'
+        }).
+        when('/addPost', {
+            templateUrl: 'views/addPost.html',
+            controller: 'AddPostCtrl as AddPost'
+        }).
         otherwise({
             redirectTo: '/'
         });

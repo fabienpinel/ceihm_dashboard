@@ -7,6 +7,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
             "dislike": 10,
             "date": new Date(2015, 2, 14, 7, 58, 2),
             "name": "Browning Morse",
+            "userId": 1,
             "title": "Université Laval Canada",
             "content": "Mon expérience au sein de l'université Canadienne Laval a été pour moi une expérience unique. La résidence Turing à deux pas de l'université offre des logements à bas prix uniquement réservé au aux étrangers, Erasmus.\r\n",
             "tags": [
@@ -23,6 +24,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
                     "dislike": 0,
                     "date": new Date(2015, 2, 14, 18, 58, 2),
                     "name": "Bates Rocha",
+                    "userId": 2,
                     "content": "La résidence à laquelle tu fais allusion est souvent pleine, il faut s'y prendre à l'avance (au moins un mois).\r\n"
                 },
                 {
@@ -31,6 +33,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
                     "dislike": 1,
                     "date": new Date(2015, 2, 14, 21, 58, 2),
                     "name": "Hull Hale",
+                    "userId": 3,
                     "content": "J'aimerai également dire que les cours correspondent parfaitement à mon cursus (Polytech'Orléans).\r\n"
                 }
             ]
@@ -41,6 +44,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
             "dislike": 2,
             "date": new Date(2015, 6, 3, 7, 58, 2),
             "name": "Dejesus Wong",
+            "userId": 4,
             "title": "Polytechnique Montreal",
             "content": "L'école est génial, plein de bonne rencontre, des cours géniaux. La résidence Touproc est un peu loin, mais est nettement moins chere que celle d'à côté. L'école a de nombreux cursus en biologie qui regroupe très bien ceux de Polytech",
             "tags": [
@@ -55,6 +59,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
                     "dislike": 2,
                     "date": new Date(2015, 6, 3, 18, 58, 2),
                     "name": "Pearl Michael",
+                    "userId": 5,
                     "content": "Il y a une autre résidence juste à côté : Studicity, elle est réservé pour les français, tu pourra y faire plein de rencontre.\r\n"
                 }
             ]
@@ -65,6 +70,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
             "dislike": 0,
             "date": new Date(2016, 1, 2, 18, 58, 2),
             "name": "Dunlap Whitney",
+            "userId": 6,
             "title": "Ecole chinoise",
             "content": "L'école Noob In'Genieur est vraiment mauvaise, les profs sont souvent absent et les cours que l'on a choisit à distance ne correspondent pas, les autres étrangers que j'ai rencontré on eu le même problème que moi. Je ne la recommande pas.\r\n",
             "tags": [
@@ -79,6 +85,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
             "dislike": 1,
             "date": new Date(2014, 1, 20, 18, 12, 2),
             "name": "Noelle Welch",
+            "userId": 7,
             "title": "Université du Vietnam",
             "content": "Université Vouand'On'Di géniale. Logement et restauration dans l'université.\r\n",
             "tags": [
@@ -104,7 +111,7 @@ angular.module('ceihm').factory('PostsFactory', [function () {
             }
             return null;
         },
-        addPost: function (title, content, name, tags) {
+        addPost: function (title, content, name, tags, userId) {
             posts.push({
                 name: name,
                 title: title,
@@ -112,10 +119,11 @@ angular.module('ceihm').factory('PostsFactory', [function () {
                 comments: [],
                 tags: tags,
                 like: 0,
-                index: _index++
+                index: _index++,
+                userId: userId
             });
         },
-        addComment: function (postId, commentContent, name) {
+        addComment: function (postId, commentContent, name, userId) {
             for (var i in posts) {
                 if (posts[i].index == postId) {
                     posts[i].comments.push({
@@ -124,7 +132,8 @@ angular.module('ceihm').factory('PostsFactory', [function () {
                         like: 0,
                         dislike: 0,
                         index: _index++,
-                        date: new Date()
+                        date: new Date(),
+                        userId: userId
                     });
                     break;
                 }

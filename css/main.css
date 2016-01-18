@@ -208,3 +208,49 @@ a:hover
 .name {
     text-transform: capitalize;
 }
+
+.user-container {
+    padding:15px;
+}
+
+.user-container img {
+    width:50px;
+    height:50px;
+}
+.user-container .img-name {
+    position:relative;
+}
+.user-container .name {
+    font-size:24px;
+    height: 50px;
+    position: absolute;
+    top: 13px;
+    margin-left: 10px;
+}
+.user-container .name, .user-container .picture {
+    display:inline-block;
+}
+
+.user-container .join .fa {
+    height:40px;
+    width:40px;
+    background:lightgrey;
+    border: 3px black solid;
+    border-radius:100000px;
+    color: rgb(63,81,181);
+    text-align:center;
+    line-height:40px;
+}
+
+.user-container .join {
+    margin-top:10px;
+}
+
+.user-container .join > * {
+    margin-bottom: 5px;
+    cursor:pointer;
+}
+
+.user-container .join > *:first-child {
+    cursor:inherit;
+}

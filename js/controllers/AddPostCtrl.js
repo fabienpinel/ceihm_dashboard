@@ -21,7 +21,7 @@ angular.module('ceihm').controller('AddPostCtrl', ['$rootScope','$scope', 'Posts
     $scope.post = {tags:[]};
 
     $scope.addPost = function () {
-        PostsFactory.addPost($scope.post.title, $scope.post.content, $rootScope.user.firstname+" "+$rootScope.user.lastname, $scope.post.tags);
+        PostsFactory.addPost($scope.post.title, $scope.post.content, $rootScope.user.firstname+" "+$rootScope.user.lastname, $scope.post.tags, $rootScope.user.id);
         $location.path("/posts");
     };
 

@@ -17,7 +17,7 @@
                          alt="unknown user" />
                 </div>
                 <div class="name">
-                    <a>{{SinglePost.post.name}}</a> <span class="time"><time-ago from-time='{{ SinglePost.post.date }}'></time-ago></span>
+                    <a ng-href="#/user/{{SinglePost.post.userId}}">{{SinglePost.post.name}}</a> <span class="time"><time-ago from-time='{{ SinglePost.post.date }}'></time-ago></span>
                 </div>
             </div>
             <div class="content">
@@ -76,7 +76,7 @@
                              alt="unknown user" />
                     </div>
                     <div class="name">
-                        <a>{{comment.name}}</a> <span class="time"><time-ago from-time='{{ comment.date }}'></time-ago></span>
+                        <a ng-href="#/user/{{comment.userId}}">{{comment.name}}</a> <span class="time"><time-ago from-time='{{ comment.date }}'></time-ago></span>
                     </div>
                 </div>
                 <div class="content">

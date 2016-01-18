@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="post-info">
-                    posté par <span class="author">{{ post.name }}</span>
+                    posté par <a ng-href="#/user/{{post.userId}}">{{ post.name }}</a>
                     <time-ago from-time='{{ post.date }}'></time-ago>
                 </div>
             </div>
