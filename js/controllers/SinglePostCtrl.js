@@ -1,4 +1,4 @@
-angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', '$mdToast','PostsFactory', '$rootScope', function ($scope, $routeParams, $mdToast,PostsFactory,$rootScope) {
+angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', '$mdToast','PostsFactory', '$rootScope','$location', function ($scope, $routeParams, $mdToast,PostsFactory,$rootScope, $location) {
 
     var vm = this;
     vm.post = PostsFactory.getPostById($routeParams.id);
@@ -38,5 +38,9 @@ angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', 
                 .content('Vous devez être connecté pour voter.')
                 .hideDelay(3000)
         );
+    }
+    vm.searchThisTag = function (tag) {
+        $location.path('/posts');
+        $location.search('search', tag);
     }
 }]);
