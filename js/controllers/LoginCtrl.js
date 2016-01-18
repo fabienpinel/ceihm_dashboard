@@ -12,6 +12,7 @@ angular.module('ceihm').controller('LoginCtrl', ['$scope', 'LoginFactory','$mdTo
         );
         $rootScope.logged = true;
         $rootScope.user = loginSuccess;
+        localStorage.setItem('user', loginSuccess);
         $location.path("/posts");
     }
 }]);

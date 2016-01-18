@@ -27,6 +27,10 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
 
 
 angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$location', '$route', function ($rootScope, $mdDialog, PostsFactory, $location, $route) {
+    if(localStorage.getItem('user')){
+        $rootScope.logged = true;
+        $rootScope.user = localStorage.getItem('user');
+    }
 
     $rootScope.text = function () {
         return $location.path() == '/posts' ? 'Post' : 'Commentaire';
@@ -34,6 +38,7 @@ angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$locati
     $rootScope.disconnect = function(){
         $rootScope.logged = false;
         $rootScope.user = false;
+        localStorage.removeItem('user');
         $location.path = "/posts";
     }
 }]);
