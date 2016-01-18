@@ -15,7 +15,6 @@ angular.module('ceihm').controller('SigninCtrl', ['$scope', 'SigninFactory','$md
         );
         $rootScope.logged = true;
         $rootScope.user = singinSuccess;
-        $location.path("/posts");
     }
 
 }]);

@@ -31,6 +31,11 @@ angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$locati
     $rootScope.text = function () {
         return $location.path() == '/posts' ? 'Post' : 'Commentaire';
     };
+    $rootScope.disconnect = function(){
+        $rootScope.logged = false;
+        $rootScope.user = false;
+        $location.path = "/posts";
+    }
 }]);
 
 function DialogController ($scope, $mdDialog) {

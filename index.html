@@ -38,6 +38,9 @@
         <md-button aria-label="Settings" ng-href="#login" ng-show="!$root.logged">
             <span id="login">Se connecter</span>
         </md-button>
+        <md-button aria-label="Settings" ng-click="disconnect()" ng-show="$root.logged">
+            <span id="disconnect">Se déconnecter</span>
+        </md-button>
     </div>
 </md-toolbar>
 
