@@ -1,4 +1,4 @@
-angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '$location', function ($scope, PostsFactory, $location) {
+angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '$location','$routeParams', function ($scope, PostsFactory, $location, $routeParams) {
 
 
     var vm = this;
@@ -9,7 +9,7 @@ angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '
 
     vm.post = {};
 
-    vm.search = '';
+    vm.search = $routeParams.search;
 
     vm.filterPost = function(filter) {
         vm.reverse = (vm.filterPosts === filter) ? !vm.reverse : false;
@@ -17,6 +17,7 @@ angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '
     };
 
     vm.searchThisTag = function(tag) {
+        $location.search("search", tag);
         vm.search = tag;
     };
 
@@ -25,4 +26,8 @@ angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '
         var earl = '/posts/' + index;
         $location.path(earl);
     };
+    vm.updateURL = function(){
+        console.log("update url");
+        $location.search("search", vm.search);
+    }
 }]);

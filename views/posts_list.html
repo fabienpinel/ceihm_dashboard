@@ -4,7 +4,7 @@
             <md-input-container>
                 <i class="fa fa-search fa-2x search-icon"></i>
                 <label>Search</label>
-                <input ng-model="PostsList.search" type="text">
+                <input ng-model="PostsList.search" type="text" ng-change="PostsList.updateURL()">
             </md-input-container>
         </div>
 

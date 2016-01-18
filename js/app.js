@@ -5,7 +5,8 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/posts', {
             templateUrl: 'views/posts_list.html',
-            controller: 'PostsListCtrl as PostsList'
+            controller: 'PostsListCtrl as PostsList',
+        reloadOnSearch: false
         }).
         when('/posts/:id', {
             templateUrl: 'views/single_post.html',
