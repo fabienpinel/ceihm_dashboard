@@ -3,15 +3,15 @@
         <div>
             <md-input-container>
                 <i class="fa fa-search fa-2x search-icon"></i>
-                <label>Search</label>
+                <label>Recherche</label>
                 <input ng-model="PostsList.search" type="text" ng-change="PostsList.updateURL()">
             </md-input-container>
         </div>
 
-        <div class="filters"> Filter by :
-            <md-button class="md-raised" ng-click="PostsList.filterPost('like')">Like</md-button>
-            <md-button class="md-raised" ng-click="PostsList.filterPost('name')"> Author </md-button>
-            <md-button class="md-raised" ng-click="PostsList.filterPost('title')">Title</md-button>
+        <div class="filters"> Trier par :
+            <md-button class="md-raised" ng-click="PostsList.filterPost('like')">Votes</md-button>
+            <md-button class="md-raised" ng-click="PostsList.filterPost('name')"> Auteur </md-button>
+            <md-button class="md-raised" ng-click="PostsList.filterPost('title')">Titre</md-button>
         </div>
     </div>
 
