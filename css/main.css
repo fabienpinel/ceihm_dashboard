@@ -157,7 +157,10 @@ a:hover
     position: absolute;
     margin-left:10px;
 }
-
+.comment-form-not-logged {
+    margin-top:15px;
+    margin-bottom:15px;
+}
 .comment-form md-input-container {
     padding-bottom:5px;
 }
