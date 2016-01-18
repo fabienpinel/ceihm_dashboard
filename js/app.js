@@ -1,50 +1,53 @@
-angular.module('ceihm', ['ngRoute', 'ngMaterial', 'ngMessages']);
+angular.module('ceihm', ['ngRoute', 'ngMaterial', 'ngMessages', 'yaru22.angular-timeago']);
 
 angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider.
         when('/posts', {
             templateUrl: 'views/posts_list.html',
-            controller: 'PostsListCtrl as PostsList'
+            controller: 'PostsListCtrl as PostsList',
+        reloadOnSearch: false
         }).
         when('/posts/:id', {
             templateUrl: 'views/single_post.html',
             controller: 'SinglePostCtrl as SinglePost'
         }).
-        when('/maps', {
-            templateUrl: 'views/maps.html',
-            controller: 'MapsCtrl as Maps'
+        when('/', {
+        templateUrl: 'views/maps.html',
+        controller: 'MapsCtrl as Maps'
         }).
+        when('/login', {
+            templateUrl: 'views/login.html',
+            controller: 'LoginCtrl as Login'
+         }).
+    when('/signin', {
+        templateUrl: 'views/signin.html',
+        controller: 'SigninCtrl as Signin'
+    }).
+    when('/addPost', {
+        templateUrl: 'views/addPost.html',
+        controller: 'AddPostCtrl as AddPost'
+    }).
         otherwise({
-            redirectTo: '/posts'
+            redirectTo: '/'
         });
-
 }]);
 
 
-angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$location', '$route',function ($rootScope, $mdDialog, PostsFactory, $location, $route) {
+angular.module('ceihm').run(['$rootScope', '$mdDialog', 'PostsFactory', '$location', '$route', function ($rootScope, $mdDialog, PostsFactory, $location, $route) {
+    if(localStorage.getItem('user')){
+        $rootScope.logged = true;
+        $rootScope.user = JSON.parse(localStorage.getItem('user'));
+    }
 
     $rootScope.text = function () {
         return $location.path() == '/posts' ? 'Post' : 'Commentaire';
     };
-
-    $rootScope.showAdvanced = function(ev) {
-
-            $mdDialog
-                .show({
-                    controller: DialogController,
-                    templateUrl: 'views/signin.html',
-                    parent: angular.element(document.body),
-                    targetEvent: ev,
-                    clickOutsideToClose:true
-                })
-                .then(function(post) {
-                    if (post && post.title && post.content && post.name) PostsFactory.addPost(post.title, post.content, post.name, post.tags);
-                });
-
-
-    };
-
+    $rootScope.disconnect = function(){
+        $rootScope.logged = false;
+        $rootScope.user = false;
+        localStorage.removeItem('user');
+    }
 }]);
 
 function DialogController ($scope, $mdDialog) {

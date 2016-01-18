@@ -1,7 +1,7 @@
-.like {
-    position: absolute;
-    top: 74px;
-    left: 0px;
+.posts-container .search-icon {
+    position:absolute;
+    top:17px;
+    left:-35px;
 }
 
 #world-map {
@@ -14,51 +14,197 @@
     left: 34px;
 }
 
-.search-icon {
-    position:absolute;
-    top:17px;
-    left:-35px;
-}
-
-.tags {
-    margin:10px;
-    margin-bottom:20px;
-    margin-left:0px;
-}
-
-.filters {
+.posts-container .filters {
     text-align:center;
+>>>>>>> ee5cc5a5466fe8b867b9782defdf53bda5a8c826
 }
 
-.tag {
-    margin-right:5px;
-    display:inline;
-    background:lightgrey;
-    padding:5px;
-    border-radius:100000px;
-    text-align:center;
-    cursor:pointer;
-}
-.tag:focus {
-    outline:  none;
-}
-
-.add-dialog-content {
-    width:400px;
-    padding:15px;
-    order:0;
-    -webkit-order:0;
-}
-
-.submit-button-add {
-    margin-right:20px;
-}
-
-.search-filter {
+.posts-container .search-filter {
     width:400px;
     margin:auto;
+    margin-bottom: 30px;
 }
 
+.posts-container .post {
+    margin-bottom: 10px;
+    padding-bottom:10px;
+    border-bottom: 1px lightgrey solid;
+}
 
+.posts-container .post:last-child {
+    border-bottom: none;
+}
+
+.posts-container .posts-container {
+    width: 600px;
+    margin: auto;
+}
+.posts-container .posts-container .post-body {
+    display:inline-block;
+    width: calc(100% - 146px);
+}
+
+.posts-container .posts-container .post-title {
+    color: #005999;
+    font-weight:bold;
+    cursor:pointer;
+    margin-bottom:5px;
+}
+
+.posts-container .posts-container .post-info {
+    margin-top:5px;
+    float: left;
+    font-size: 11px;
+}
+.tag {
+    padding:5px;
+    color: #39739d;
+    font-size: 12px!important;
+    white-space: nowrap;
+    background: #e1ecf4;
+    border: 1px solid #e1ecf4;
+    display: inline-block;
+    margin: 2px 2px 2px 0;
+    border-radius: 0;
+    cursor:pointer;
+}
+
+.posts-container .posts-container .votes, .posts-container  .posts-container .comments {
+    display: inline-block;
+    text-align:center;
+    cursor:pointer;
+    height: 38px;
+    min-width: 38px;
+    margin: 0 3px 0 0;
+    font-size: 11px;
+    font-weight:500;
+    color: #777;
+    padding: 5px 5px 6px 5px;
+}
+
+.posts-container .mini-counts {
+    font-size: 17px;
+    font-weight: 300;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+.posts-container .post .author {
+    color: #005999;
+    cursor:pointer;
+}
+
+a {
+    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color:#00A0C6;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+[ng-click] {
+    outline: 0px!important;
+}
+
+.single-post-container {
+    padding:10px;
+}
+
+.question-header {
+    clear: both;
+    padding: 5px 0;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.single-post-container .vote {
+    width: 40px;
+    text-align:center;
+    display:inline-block;
+    position:absolute;
+}
+.single-post-container .body {
+    left:40px;
+    width: calc(100% - 65px);
+    min-height:90px;
+    display:inline-block;
+    padding: 10px;
+    position: relative;
+}
+.single-post-container .vote .fa { cursor:pointer;}
+.single-post-container .vote .count {
+    font-size:18px;
+}
+
+.single-post-container .post {
+    position: relative;
+}
+.single-post-container .body .content {
+    margin-bottom: 10px;
+}
+.single-post-container .author .picture {
+    width:30px;
+    height: 30px;
+    display:inline-block;
+}
+.single-post-container .author {
+    margin-bottom: 5px;
+}
+
+.single-post-container .author .picture img {
+    width:30px;
+    height: 30px;
+}
+.single-post-container .author .name {
+    display:inline-block;
+    height: 30px;
+    margin-top: 7px;
+    position: absolute;
+    margin-left:10px;
+}
+.comment-form-not-logged {
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.comment-form md-input-container {
+    padding-bottom:5px;
+}
+.comment-form .md-button {
+    float: right;
+}
 #title {
+}
+.right{
+    float:right;
+}
+#loginDiv, #signinDiv{
+    padding-top: 20px;
+}
+
+.single-post-container .author {
+    cursor:pointer;
+}
+
+.author .time {
+    font-size: 12px;
+    color: grey;
+}
+.plus-button span{
+    font-size:24px;
+    line-height: 1px;
+}
+.plus-button {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.name {
+    text-transform: capitalize;
 }

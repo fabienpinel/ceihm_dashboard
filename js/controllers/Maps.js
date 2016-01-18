@@ -22,7 +22,7 @@ angular.module('ceihm').controller('MapsCtrl', ['$scope','$location', function (
             "AR": 6,
             "CU": 1
     };
-
+        
         $('#world-map').vectorMap({
             map: 'world_mill',
             regionStyle : {

@@ -1,28 +1,33 @@
-angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', function ($scope, PostsFactory) {
+angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '$location','$routeParams', function ($scope, PostsFactory, $location, $routeParams) {
 
 
     var vm = this;
 
-    vm.filterPosts ='';
+    vm.filterPosts = 'like';
     vm.reverse = true;
     vm.posts = PostsFactory.getPosts();
 
     vm.post = {};
 
-    vm.search = '';
-
-    vm.addPost = function () {
-        PostsFactory.addPost(vm.post.title, vm.post.content, vm.post.name);
-        vm.post = {};
-    };
+    vm.search = $routeParams.search;
 
     vm.filterPost = function(filter) {
         vm.reverse = (vm.filterPosts === filter) ? !vm.reverse : false;
         vm.filterPosts = filter;
-    }
+    };
 
     vm.searchThisTag = function(tag) {
+        $location.search("search", tag);
         vm.search = tag;
-    }
+    };
 
+    vm.go = function(index){
+        console.log(index);
+        var earl = '/posts/' + index;
+        $location.path(earl);
+    };
+    vm.updateURL = function(){
+        console.log("update url");
+        $location.search("search", vm.search);
+    }
 }]);

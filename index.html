@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr_FR">
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="lib/vectormaps/jquery-jvectormap-2.0.3.css"/>
+    <link rel="stylesheet" href="bower_components/angular-timeago/dist/angular-timeago.css"/>
     <link rel="stylesheet" href="css/main.css"/>
 
 </head>
 <body ng-app="ceihm">
-
+<login-modal></login-modal>
 <md-toolbar>
     <div class="md-toolbar-tools">
         <md-button class="md-icon-button" aria-label="Settings">
@@ -26,8 +27,14 @@
             <span>FAQ Semestre étranger</span>
         </h2>
         <span flex></span>
-        <md-button aria-label="Settings" ng-click="showAdvanced($event)">
+        <md-button aria-label="Settings" ng-href="#signin" ng-show="!$root.logged">
             <span id="singin">S'enregistrer</span>
+        </md-button>
+        <md-button aria-label="Settings" ng-href="#login" ng-show="!$root.logged">
+            <span id="login">Se connecter</span>
+        </md-button>
+        <md-button aria-label="Settings" ng-click="disconnect()" ng-show="$root.logged">
+            <span id="disconnect">Se déconnecter</span>
         </md-button>
     </div>
 </md-toolbar>
@@ -40,15 +47,28 @@
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-messages/angular-messages.min.js"></script>
 
+<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+<script src="bower_components/angular-timeago/dist/angular-timeago.js"></script>
+
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="lib/vectormaps/jquery-jvectormap-2.0.3.min.js"></script>
 <script src="lib/vectormaps/jquery-jvectormap-world-mill.js"></script>
 
 <script src="js/app.js"></script>
+<!-- Services -->
 <script src="js/services/posts.js"></script>
+<script src="js/services/login.js"></script>
+<script src="js/services/signin.js"></script>
+<script src="js/services/signin.js"></script>
+<script src="js/services/users.js"></script>
+
+<!-- Controllers -->
 <script src="js/controllers/PostsListCtrl.js"></script>
 <script src="js/controllers/SinglePostCtrl.js"></script>
 <script src="js/controllers/Maps.js"></script>
+<script src="js/controllers/LoginCtrl.js"></script>
+<script src="js/controllers/SigninCtrl.js"></script>
+<script src="js/controllers/AddPostCtrl.js"></script>
 
 </body>
 </html>

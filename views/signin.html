@@ -1,60 +1,28 @@
-<md-dialog aria-label="signin">
-    <form ng-submit="answer()" name="userForm">
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>S'enregistrer</h2>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="hide()" aria-label="close">
-                    <div layout="row" layout-align="center center">
-                        <i class="fa fa-times fa-2x"></i>
-                    </div>
-                </md-button>
-            </div>
-        </md-toolbar>
-        <md-dialog-content class="add-dialog-content">
-            <md-content class="autoScroll">
-                <md-input-container class="md-icon-float md-block">
-                    <!-- Use floating label instead of placeholder -->
-                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
-                    <input ng-model="user.name" name="name" type="text" placeholder="Nom (Requis)" required>
-                    <div ng-messages="userForm.name.$error" ng-if="!showHints">
-                        <div ng-message="required">Le nom est requis pour l'inscription.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-icon-float md-block">
-                    <!-- Use floating label instead of placeholder -->
-                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="firstname"></md-icon>
-                    <input ng-model="user.firstname" name="firstname" type="text" placeholder="Prénom (Requis)" required>
-                    <div ng-messages="userForm.firstname.$error" ng-if="!showHints">
-                        <div ng-message="required">Le prénom est requis pour l'inscription.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <!-- Use floating placeholder instead of label -->
-                    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
-                    <input ng-model="user.email" name="email" type="email" placeholder="Email (Requise)" required>
-                    <div ng-messages="userForm.email.$error" ng-if="!showHints">
-                        <div ng-message="required">L'adresse mail est requise pour l'inscription.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <!-- Use floating placeholder instead of label -->
-                    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="password"></md-icon>
-                    <input ng-model="user.password" name="password" type="password" placeholder="Mot de passe (requis)" required>
-                    <div ng-messages="userForm.password.$error" ng-if="!showHints">
-                        <div ng-message="required">Le mot de passe est requis pour l'inscription.</div>
-                    </div>
-                </md-input-container>
-            </md-content>
-        </md-dialog-content>
-        <md-dialog-actions layout="row">
-            <span flex></span>
-            <md-button ng-click="hide()">
-                Fermer
-            </md-button>
-            <md-button type="submit" class="md-raised md-primary submit-button-add">
-                S'inscrire
-            </md-button>
-        </md-dialog-actions>
-    </form>
-</md-dialog>
+<div layout="row">
+    <div flex="30">
+    </div>
+    <div id="signinDiv" flex="50">
+        <form>
+            <md-input-container>
+                <label>Prénom</label>
+                <input type="text" ng-model="user.firstname" required md-autofocus>
+            </md-input-container>
+            <md-input-container>
+                <label>Nom</label>
+                <input  type="text" ng-model="user.surname" required/>
+            </md-input-container>
+            <md-input-container>
+                <label>Email</label>
+                <input  type="email" ng-model="user.mail" required/>
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input  type="password" ng-model="user.password" required/>
+            </md-input-container>
+            <md-button type="submit" class="md-raised right" ng-click="signin()"> Inscription </md-button>
+        </form>
+    </div>
+
+    <div flex hide-sm hide-xs>
+    </div>
+</div>

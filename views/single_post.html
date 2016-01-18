@@ -1,37 +1,84 @@
-<md-list>
-    <md-list-item class="md-3-line md-long-text">
-        <img src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b0caf8bf-210x210.png"
-             class="md-avatar"
-             alt="unknown user" />
-        <div class="md-list-item-text">
-            <h3>{{ SinglePost.post.title }}</h3>
-            <h4>{{ SinglePost.post.name }}</h4>
-            <p>
+<div class="single-post-container">
+
+    <div class="question-header">
+        {{ SinglePost.post.title }}
+    </div>
+    <div class="post">
+        <div class="vote">
+            <div class="up-vote" ng-click="SinglePost.vote(true)"><i class="fa fa-caret-up fa-2x"></i></div>
+            <div class="count">{{SinglePost.post.like - SinglePost.post.dislike}}</div>
+            <div class="down-vote" ng-click="SinglePost.vote(false)"><i class="fa fa-caret-down fa-2x"></i></div>
+        </div>
+        <div class="body">
+            <div class="author">
+                <div class="picture">
+                    <img src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b0caf8bf-210x210.png"
+                         class="md-avatar"
+                         alt="unknown user" />
+                </div>
+                <div class="name">
+                    <a>{{SinglePost.post.name}}</a> <span class="time"><time-ago from-time='{{ SinglePost.post.date }}'></time-ago></span>
+                </div>
+            </div>
+            <div class="content">
                 {{ SinglePost.post.content }}
-            </p>
+            </div>
             <div class="tags">
                 <div ng-repeat="tag in SinglePost.post.tags track by $index" class="tag">
-                    <small>{{tag}}</small>
+                    #{{tag}}
                 </div>
             </div>
         </div>
-        <md-divider></md-divider>
-    </md-list-item>
-</md-list>
+    </div>
 
-<div>Comments :</div>
-
-<md-list>
-    <md-list-item class="md-3-line md-long-text"  ng-repeat="comment in SinglePost.post.comments">
-        <img src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b0caf8bf-210x210.png"
-             class="md-avatar"
-             alt="unknown user" />
-        <div class="md-list-item-text">
-            <h3>{{ comment.name }}</h3>
-            <p>
-                {{ comment.content }}
-            </p>
+    <div class="comment-form" ng-show="$root.logged">
+        <div class="question-header">
+            Ajouter un commentaire
         </div>
-        <md-divider></md-divider>
-    </md-list-item>
-</md-list>
+        <form ng-submit="SinglePost.addComment()" class="comment-form">
+            <md-input-container md-no-float class="md-block">
+                <textarea ng-model="SinglePost.comment" columns="1" rows="3" placeholder="Entrez votre commentaire ici..." required></textarea>
+            </md-input-container>
+            <md-button class="md-raised">
+                <i class="fa fa-paper-plane"></i>
+                Envoyer
+            </md-button>
+        </form>
+    </div>
+
+    <div class="comment-form-not-logged" ng-show="!$root.logged">
+        <i class="fa fa-info-circle"></i> <a ng-href="#/login">Connectez vous</a> pour ajouter un commentaire !
+    </div>
+
+    <div class="comments-container">
+        <div class="question-header">
+            Commentaires ({{ SinglePost.post.comments.length }})
+        </div>
+
+        <div
+                ng-repeat="comment in SinglePost.post.comments
+                            | orderBy:SinglePost.orderByLike"
+                class="post">
+            <div class="vote">
+                <div class="up-vote" ng-click="SinglePost.voteForComment(comment.index, true)"><i class="fa fa-caret-up fa-2x"></i></div>
+                <div class="count">{{comment.like - comment.dislike}}</div>
+                <div class="down-vote" ng-click="SinglePost.voteForComment(comment.index, false)"><i class="fa fa-caret-down fa-2x"></i></div>
+            </div>
+            <div class="body">
+                <div class="author">
+                    <div class="picture">
+                        <img src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b0caf8bf-210x210.png"
+                             class="md-avatar"
+                             alt="unknown user" />
+                    </div>
+                    <div class="name">
+                        <a>{{comment.name}}</a> <span class="time"><time-ago from-time='{{ comment.date }}'></time-ago></span>
+                    </div>
+                </div>
+                <div class="content">
+                    {{ comment.content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
