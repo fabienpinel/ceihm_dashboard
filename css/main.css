@@ -175,3 +175,12 @@ a:hover
 #loginDiv, #signinDiv{
     padding-top: 20px;
 }
+
+.single-post-container .author {
+    cursor:pointer;
+}
+
+.author .time {
+    font-size:12px;
+    color:grey;
+}

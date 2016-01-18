@@ -37,7 +37,8 @@
                     </div>
                 </div>
                 <div class="post-info">
-                    posté par <span class="author">{{ post.name }}</span> il y a 5 minutes
+                    posté par <span class="author">{{ post.name }}</span>
+                    <time-ago from-time='{{ post.date }}'></time-ago>
                 </div>
             </div>
         </div>

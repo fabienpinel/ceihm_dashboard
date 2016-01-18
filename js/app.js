@@ -1,4 +1,4 @@
-angular.module('ceihm', ['ngRoute', 'ngMaterial', 'ngMessages']);
+angular.module('ceihm', ['ngRoute', 'ngMaterial', 'ngMessages', 'yaru22.angular-timeago']);
 
 angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
 

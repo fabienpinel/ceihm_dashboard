@@ -1,4 +1,4 @@
-angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', 'PostsFactory', function ($scope, $routeParams, PostsFactory) {
+angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', 'PostsFactory', '$rootScope', function ($scope, $routeParams, PostsFactory,$rootScope) {
 
     var vm = this;
     vm.post = PostsFactory.getPostById($routeParams.id);
@@ -13,7 +13,14 @@ angular.module('ceihm').controller('SinglePostCtrl', ['$scope', '$routeParams', 
     };
 
     vm.addComment = function () {
-        console.log('coucou', vm.comment);
+        if ($rootScope.logged) {
+            PostsFactory.addComment(vm.post.index, vm.comment, $rootScope.user.firstname + " " + $rootScope.user.lastname);
+            vm.comment = '';
+        }
+    };
+
+    vm.orderByLike = function(comment) {
+        return comment.dislike - comment.like;
     };
 
 }]);

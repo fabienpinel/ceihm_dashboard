@@ -17,7 +17,7 @@
                          alt="unknown user" />
                 </div>
                 <div class="name">
-                    {{SinglePost.post.name}}
+                    <a>{{SinglePost.post.name}}</a> <span class="time"><time-ago from-time='{{ SinglePost.post.date }}'></time-ago></span>
                 </div>
             </div>
             <div class="content">
@@ -55,8 +55,10 @@
             Commentaires ({{ SinglePost.post.comments.length }})
         </div>
 
-        <div ng-repeat="comment in SinglePost.post.comments" class="post">
-
+        <div
+                ng-repeat="comment in SinglePost.post.comments
+                            | orderBy:SinglePost.orderByLike"
+                class="post">
             <div class="vote">
                 <div class="up-vote" ng-click="SinglePost.voteForComment(comment.index, true)"><i class="fa fa-caret-up fa-2x"></i></div>
                 <div class="count">{{comment.like - comment.dislike}}</div>
@@ -70,7 +72,7 @@
                              alt="unknown user" />
                     </div>
                     <div class="name">
-                        {{comment.name}}
+                        <a>{{comment.name}}</a> <span class="time"><time-ago from-time='{{ comment.date }}'></time-ago></span>
                     </div>
                 </div>
                 <div class="content">
