@@ -12,6 +12,10 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/single_post.html',
             controller: 'SinglePostCtrl as SinglePost'
         }).
+        when('/', {
+        templateUrl: 'views/maps.html',
+        controller: 'MapsCtrl as Maps'
+        }).
         when('/login', {
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl as Login'
@@ -25,9 +29,8 @@ angular.module('ceihm').config(['$routeProvider', function ($routeProvider) {
         controller: 'AddPostCtrl as AddPost'
     }).
         otherwise({
-            redirectTo: '/posts'
+            redirectTo: '/'
         });
-
 }]);
 
 

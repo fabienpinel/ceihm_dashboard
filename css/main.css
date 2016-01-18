@@ -4,8 +4,19 @@
     left:-35px;
 }
 
+#world-map {
+    background-color:white;
+}
+
+.comment {
+    position: absolute;
+    top: 74px;
+    left: 34px;
+}
+
 .posts-container .filters {
     text-align:center;
+>>>>>>> ee5cc5a5466fe8b867b9782defdf53bda5a8c826
 }
 
 .posts-container .search-filter {
