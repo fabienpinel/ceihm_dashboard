@@ -22,7 +22,7 @@ angular.module('ceihm').controller('MapsCtrl', ['$scope','$location', function (
             "AR": 6,
             "CU": 1
     };
-        
+
         $('#world-map').vectorMap({
             map: 'world_mill',
             regionStyle : {
@@ -51,7 +51,10 @@ angular.module('ceihm').controller('MapsCtrl', ['$scope','$location', function (
             },
                 onRegionClick: function(e, code) {
                     var map = $('#world-map').vectorMap('get', 'mapObject');
-                    if(gdpData[code] != undefined) window.location.href = "#/posts?search="+map.getRegionName(code);
+                    if(gdpData[code] != undefined) {
+                        $('.jvectormap-tip').remove();
+                        window.location.href = "#/posts?search="+map.getRegionName(code);
+                    }
                 },
             backgroundColor: "#ccccee"
         });
