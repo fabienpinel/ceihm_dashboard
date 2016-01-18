@@ -6,6 +6,13 @@ angular.module('ceihm').controller('MapsCtrl', ['$scope','$location', function (
     $(function(){
         $('#world-map').css("height",($(window).height() - $("md-toolbar").height())+"px");
 
+        function camelize(str) {
+            return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+                if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+                return match.toUpperCase();
+            });
+        }
+
         var gdpData = {
             "CA": 122,
             "CN": 80,
@@ -53,7 +60,7 @@ angular.module('ceihm').controller('MapsCtrl', ['$scope','$location', function (
                     var map = $('#world-map').vectorMap('get', 'mapObject');
                     if(gdpData[code] != undefined) {
                         $('.jvectormap-tip').remove();
-                        window.location.href = "#/posts?search="+map.getRegionName(code);
+                        window.location.href = "#/posts?search="+camelize(map.getRegionName(code));
                     }
                 },
             backgroundColor: "#ccccee"
