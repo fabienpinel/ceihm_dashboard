@@ -24,7 +24,7 @@
                 {{ SinglePost.post.content }}
             </div>
             <div class="tags">
-                <div ng-repeat="tag in SinglePost.post.tags track by $index" class="tag">
+                <div ng-repeat="tag in SinglePost.post.tags track by $index" class="tag" ng-click="SinglePost.searchThisTag(tag)">
                     #{{tag}}
                 </div>
             </div>
@@ -53,6 +53,10 @@
     <div class="comments-container">
         <div class="question-header">
             Commentaires ({{ SinglePost.post.comments.length }})
+        </div>
+
+        <div ng-show="SinglePost.post.comments.length == 0">
+            Soyez le premier à ajouter un commentaire !
         </div>
 
         <div

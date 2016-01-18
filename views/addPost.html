@@ -13,17 +13,19 @@
             </md-input-container>
             <md-input-container>
                 <label>Tags</label>
-                <input type="text" ng-model="newTag" required ng-space="addTag()">
+                <input type="text" ng-model="newTag" ng-space="addTag()">
             </md-input-container>
             <div class="tags">
+                Liste des tags :
                 <div class="tag" ng-repeat="tag in post.tags track by $index">
                     #{{tag}}
+                </div>
+                <div ng-show="post.tags.length === 0" style="display:inline-block;">
+                    aucun tag
                 </div>
             </div>
             <md-button type="submit" class="md-raised right" ng-click="addPost()"> Publier </md-button>
         </form>
     </div>
 
-    <div flex hide-sm hide-xs>
-    </div>
 </div>

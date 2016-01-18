@@ -1,4 +1,4 @@
-angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '$location','$routeParams', function ($scope, PostsFactory, $location, $routeParams) {
+angular.module('ceihm').controller('PostsListCtrl', ['$scope','$rootScope', '$mdToast','PostsFactory', '$location','$routeParams', function ($scope,$rootScope, $mdToast,PostsFactory, $location, $routeParams) {
 
 
     var vm = this;
@@ -29,5 +29,16 @@ angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '
     vm.updateURL = function(){
         console.log("update url");
         $location.search("search", vm.search);
+    }
+    vm.AddPostClick = function(){
+        if(!$rootScope.logged){
+            $mdToast.show(
+                $mdToast.simple()
+                    .content('Vous devez être connecté pour ajouter un article.')
+                    .hideDelay(3000)
+            );
+        }else{
+            $location.path("/addPost");
+        }
     }
 }]);
