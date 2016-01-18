@@ -1,9 +1,9 @@
-angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', function ($scope, PostsFactory) {
+angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', '$location', function ($scope, PostsFactory, $location) {
 
 
     var vm = this;
 
-    vm.filterPosts ='';
+    vm.filterPosts = 'like';
     vm.reverse = true;
     vm.posts = PostsFactory.getPosts();
 
@@ -19,10 +19,15 @@ angular.module('ceihm').controller('PostsListCtrl', ['$scope', 'PostsFactory', f
     vm.filterPost = function(filter) {
         vm.reverse = (vm.filterPosts === filter) ? !vm.reverse : false;
         vm.filterPosts = filter;
-    }
+    };
 
     vm.searchThisTag = function(tag) {
         vm.search = tag;
-    }
+    };
 
+    vm.go = function(index){
+        console.log(index);
+        var earl = '/posts/' + index;
+        $location.path(earl);
+    };
 }]);

@@ -1,20 +1,51 @@
-<div class="search-filter">
-    <div>
-        <md-input-container>
-            <i class="fa fa-search fa-2x search-icon"></i>
-            <label>Search</label>
-            <input ng-model="PostsList.search" type="text">
-        </md-input-container>
-    </div>
+<div class="posts-container">
+    <div class="search-filter">
+        <div>
+            <md-input-container>
+                <i class="fa fa-search fa-2x search-icon"></i>
+                <label>Search</label>
+                <input ng-model="PostsList.search" type="text">
+            </md-input-container>
+        </div>
 
-    <div class="filters"> Filter by :
+        <div class="filters"> Filter by :
             <md-button class="md-raised" ng-click="PostsList.filterPost('like')">Like</md-button>
             <md-button class="md-raised" ng-click="PostsList.filterPost('name')"> Author </md-button>
             <md-button class="md-raised" ng-click="PostsList.filterPost('title')">Title</md-button>
+        </div>
+    </div>
+
+    <div class="posts-container">
+
+        <div    ng-repeat="post in PostsList.posts
+                        | filter:PostsList.search
+                        | orderBy:PostsList.filterPosts:PostsList.reverse"
+                class="post">
+            <div class="votes" ng-click="PostsList.go(post.index)">
+                <div class="mini-counts">{{ post.like + post.dislike }}</div>
+                <div>votes</div>
+            </div>
+            <div class="comments" ng-click="PostsList.go(post.index)">
+                <div class="mini-counts">{{ post.comments.length }}</div>
+                <div>commentaires</div>
+            </div>
+            <div class="post-body">
+                <div class="post-title"><a ng-href="#/posts/{{post.index}}">{{ post.title }}</a></div>
+                <div class="post-tags">
+                    <div ng-repeat="tag in post.tags track by $index" class="tag" ng-click="PostsList.searchThisTag(tag)">
+                        #{{ tag }}
+                    </div>
+                </div>
+                <div class="post-info">
+                    posté par <span class="author">{{ post.name }}</span> il y a 5 minutes
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-
+<!--
 <md-list>
     <md-list-item class="md-3-line md-long-text" ng-repeat="post in PostsList.posts | filter:PostsList.search | orderBy:PostsList.filterPosts:PostsList.reverse">
         <img src="http://www.iconsfind.com/wp-content/uploads/2015/08/20150831_55e46b0caf8bf-210x210.png"
@@ -37,3 +68,4 @@
         <md-divider></md-divider>
     </md-list-item>
 </md-list>
+-->
