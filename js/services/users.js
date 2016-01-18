@@ -24,15 +24,15 @@ angular.module('ceihm').factory('UsersFactory', [function () {
             return users;
         },
         login: function (mail, pass) {
-            console.log('trying to login as '+mail+'/'+pass);
+            var returned = false;
             angular.forEach(users, function(u) {
-                console.log(u.mail);
                 if(u.mail == mail) {
-                    console.log("correspondance mail "+pass);
-                    return (u.password == pass);
+                    if(u.password==pass){
+                        returned = u;
+                    }
                 }
             });
-            return false;
+            return returned;
         }
     };
 }]);
