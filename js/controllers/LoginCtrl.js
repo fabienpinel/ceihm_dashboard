@@ -10,10 +10,12 @@ angular.module('ceihm').controller('LoginCtrl', ['$scope', 'LoginFactory','$mdTo
                 .content('Login '+(loginSuccess?"success":"error"))
                 .hideDelay(3000)
         );
-        $rootScope.logged = true;
-        $rootScope.user = loginSuccess;
-        localStorage.setItem('user', JSON.stringify(loginSuccess));
-        $location.path("/posts");
+        if(loginSuccess){
+            $rootScope.logged = true;
+            $rootScope.user = loginSuccess;
+            localStorage.setItem('user', JSON.stringify(loginSuccess));
+            $location.path("/posts");
+        }
     }
 }]);
 
