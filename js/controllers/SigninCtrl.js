@@ -13,11 +13,13 @@ angular.module('ceihm').controller('SigninCtrl', ['$scope', 'SigninFactory','$md
                 .content('Singin '+(singinSuccess ? "success":"error"))
                 .hideDelay(3000)
         );
+        if(singinSuccess){
+            $rootScope.logged = true;
+            $rootScope.user = singinSuccess;
+            localStorage.setItem('user', JSON.stringify(singinSuccess));
+            $location.path("/posts");
+        }
 
-        $rootScope.logged = true;
-        $rootScope.user = singinSuccess;
-        localStorage.setItem('user', JSON.stringify(singinSuccess));
-        $location.path("/posts");
     }
 
 }]);
