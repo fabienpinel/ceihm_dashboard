@@ -1,2 +1,6 @@
-# ceihm_dashboard
-Dashboard de gestion d'échange pour les étudiants à l'étranger
+# [CEIHM] Dashboard Etranger
+
+Pour déployer, cloner ce repository
+lancer `bower install`
+
+ouvrir `index.html` sur un serveur
