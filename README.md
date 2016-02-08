@@ -1,6 +1,6 @@
 # [CEIHM] Dashboard Etranger
 
-Pour déployer, cloner ce repository
+Pour déployer, cloner ce repository et
 lancer `bower install`
 
-ouvrir `index.html` sur un serveur
+puis ouvrir `index.html` sur un serveur
